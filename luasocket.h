@@ -26,20 +26,21 @@
 #include "lualib.h"
 //#include "lauxlib.h"
 
-int luaopen_luasocket(lua_State * L);
+int luaopen_socket(lua_State * L);
 
 // Loaders for all lua files. We want to be able
 // to load these dynamically. (Identical in the LuaSocket 
 // documentation. These functions wrap the parsing of code, etc).
-int __open_luasocket_socket(lua_State * L);
-int __open_luasocket_ftp(lua_State * L);
-int __open_luasocket_http(lua_State * L);
-int __open_luasocket_ltn12(lua_State * L);
-int __open_luasocket_mime(lua_State * L);
-int __open_luasocket_smtp(lua_State * L);
-int __open_luasocket_tp(lua_State * L);
-int __open_luasocket_url(lua_State * L);
-int __open_luasocket_headers(lua_State * L);
-int __open_luasocket_mbox(lua_State * L);
+
+int luaopen_socket_socket(lua_State * L);
+int luaopen_socket_ftp(lua_State * L);
+int luaopen_socket_http(lua_State * L);
+int luaopen_ltn12(lua_State * L);
+int luaopen_mime(lua_State * L);
+int luaopen_socket_smtp(lua_State * L);
+int luaopen_socket_tp(lua_State * L);
+int luaopen_socket_url(lua_State * L);
+int luaopen_socket_headers(lua_State * L);
+int luaopen_socket_mbox(lua_State * L);
 
 #endif // LOVE_LUASOCKET_LUASOCKET_H

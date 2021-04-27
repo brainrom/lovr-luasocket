@@ -1,6 +1,13 @@
 cmake_minimum_required(VERSION 3.1.0)
 project(luasocket)
 
+if(WIN32) 
+set ("LUASOCKET_SOCKET" "luasocket/src/wsocket.c")
+endif()
+if(UNIX OR ANDROID) 
+set ("LUASOCKET_SOCKET" "luasocket/src/usocket.c")
+endif()
+
 
 add_library(luasocket MODULE 
 luasocket.c
@@ -21,10 +28,8 @@ luasocket/src/udp.c
 luasocket/src/unix.c
 luasocket/src/unixdgram.c
 luasocket/src/unixstream.c
-luasocket/src/usocket.c
+${LUASOCKET_SOCKET}
 )
 
 set_target_properties(luasocket PROPERTIES POSITION_INDEPENDENT_CODE TRUE)
 set_target_properties(luasocket PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS TRUE)
-
-#target_include_directories(lua-enet PRIVATE enet/include)
