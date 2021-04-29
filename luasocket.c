@@ -6,20 +6,6 @@
 #include "luasocket/src/mime.h"
 
 
-/*int luaopen_socket_core(lua_State * L)
-{
-
-	// Preload code from LuaSocket.
-    lua_getglobal(L, "package"); \
-	lua_getfield(L, -1, "preload"); \
-	lua_pushcfunction(L, luaopen_socket_core); \
-	lua_setfield(L, -2, "socket.core"); \
-	lua_pop(L, 2);
- 
-	return 0;
-}*/
-
-
 int luaopen_socket(lua_State * L)
 {
 	#include "luasocket/src/socket.lua.h"
