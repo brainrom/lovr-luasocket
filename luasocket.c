@@ -1,6 +1,3 @@
-
-#include "luasocket.h"
-
 // LuaSocket
 #include "luasocket.h"
 #include "luasocket/src/mime.h"
