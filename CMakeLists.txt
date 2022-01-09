@@ -30,7 +30,7 @@ foreach(path ${LUA_LIBS})
   file(WRITE ${output} "{\nstatic const unsigned char B1[] = {${data}};\n\nif (luaL_loadbuffer(L,(const char*)B1,sizeof(B1),\"${LUAFILENAME}\")==0) lua_call(L, 0, LUA_MULTRET);\n}")
 endforeach()
 
-add_library(socket MODULE 
+add_library(socket SHARED
 luasocket.c
 luasocket/src/auxiliar.c
 luasocket/src/buffer.c
@@ -46,12 +46,12 @@ luasocket/src/udp.c
 luasocket/src/timeout.c
 ${LUASOCKET_SOCKET} )
 
-add_library(mime MODULE
+add_library(mime SHARED
 luasocket/src/compat.c
 mime.c
 luasocket/src/mime.c)
 
-add_library(ltn12 MODULE 
+add_library(ltn12 SHARED
 ltn12.c
 )
 
