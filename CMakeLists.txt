@@ -55,6 +55,10 @@ add_library(ltn12 SHARED
 ltn12.c
 )
 
+if (WIN32)
+target_link_libraries(socket -lws2_32)
+endif()
+
 set_target_properties(socket PROPERTIES PREFIX "")
 set_target_properties(mime PROPERTIES PREFIX "")
 set_target_properties(ltn12 PROPERTIES PREFIX "")
