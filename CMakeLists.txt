@@ -56,7 +56,11 @@ ltn12.c
 )
 
 if (WIN32)
-target_link_libraries(socket -lws2_32)
+  if (MSVC)
+    target_link_libraries(socket wsock32 ws2_32)
+  else()
+    target_link_libraries(socket -lws2_32)
+  endif()
 endif()
 
 set_target_properties(socket PROPERTIES PREFIX "")
